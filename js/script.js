@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simple Intersection Observer for fade-in animations
+    // Optimized Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -85,20 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Apply fade-in classes to elements
+    // Select elements to animate and add the base class
     const animatedElements = document.querySelectorAll('.hero-content > *, .glass-card, .logo-item');
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        el.style.transitionDelay = `${index * 100}ms`;
+    animatedElements.forEach((el) => {
+        el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
 

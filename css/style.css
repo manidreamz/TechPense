@@ -1042,6 +1042,53 @@ h6 {
     resize: vertical;
 }
 
-.form-group textarea {
-    resize: vertical;
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for grid items only */
+.logos-grid .logo-item:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.logos-grid .logo-item:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.logos-grid .logo-item:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.logos-grid .logo-item:nth-child(5) {
+    transition-delay: 400ms;
+}
+
+.stats-grid .stat-card:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.stats-grid .stat-card:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.stats-grid .stat-card:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.pricing-grid .pricing-card:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.pricing-grid .pricing-card:nth-child(3) {
+    transition-delay: 200ms;
 }
