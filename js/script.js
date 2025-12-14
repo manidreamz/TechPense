@@ -35,14 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Navbar scroll effect
+    // Navbar scroll effect (Optimized)
     const navbar = document.querySelector('.navbar');
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
-        } else {
-            navbar.style.background = '#ffffff';
-            navbar.style.boxShadow = 'none';
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 20) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+                } else {
+                    navbar.style.background = '#ffffff';
+                    navbar.style.boxShadow = 'none';
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 

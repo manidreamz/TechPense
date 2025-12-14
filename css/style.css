@@ -290,6 +290,9 @@ h6 {
     filter: blur(60px);
     z-index: -1;
     pointer-events: none;
+    will-change: transform;
+    transform: translateX(-50%) translateZ(0);
+    /* Hardware acceleration */
 }
 
 .hero-content {
@@ -337,6 +340,10 @@ h6 {
     width: 100%;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, opacity;
+    /* Optimize animations */
+    backface-visibility: hidden;
+    /* Fix flickering */
 }
 
 .hero-visual .glass-card {
